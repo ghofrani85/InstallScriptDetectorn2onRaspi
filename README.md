@@ -64,4 +64,17 @@ $ sudo apt install libatlas-base-dev
 $ sudo pip3 install h5py
 
 
+# step 5: Install Pytorch4.0.0
+(followed from this link :https://medium.com/hardware-interfacing/how-to-install-pytorch-v4-0-on-raspberry-pi-3b-odroids-and-other-arm-based-devices-91d62f2933c7) 
+$ sudo apt install libopenblas-dev libblas-dev m4 cmake cython python3-dev python3-yaml python3-setuptools
+$ mkdir pytorch_install && cd pytorch_install
+$ git clone --recursive https://github.com/pytorch/pytorch
+$ cd pytorch
 
+and define environmental vraibales: 
+
+$ export NO_CUDA=1
+$ export NO_DISTRIBUTED=1
+$ export NO_MKLDNN=1 
+$ export NO_NNPACK=1
+$ export NO_QNNPACK=1
