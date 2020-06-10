@@ -78,3 +78,18 @@ $ export NO_DISTRIBUTED=1
 $ export NO_MKLDNN=1 
 $ export NO_NNPACK=1
 $ export NO_QNNPACK=1
+
+
+now install it:
+$ python3 setup.py build
+$ sudo -E python3 setup.py install
+
+
+
+validate the installation: 
+$ cd 
+$ python3
+>>> from __future__ import print_function
+>>> import torch
+>>> a = torch.rand(5,3)
+>>> print (a)
