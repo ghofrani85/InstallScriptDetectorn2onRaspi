@@ -79,6 +79,16 @@ $ export NO_MKLDNN=1
 $ export NO_NNPACK=1
 $ export NO_QNNPACK=1
 
+# Step optional Install tensorflow 
+$ sudo pip3 uninstall tensorflow
+$ sudo pip3 install tensorflow-1.8.0-cp35-none-linux_armv7l.whl
+$ sudo pip3 uninstall mock
+$ sudo pip3 install mock
+$ sudo apt-get install libhdf5-dev
+$ sudo pip3 install h5py
+$ sudo pip3 install mtcnn
+
+
 
 now install it:
 $ python3 setup.py build
