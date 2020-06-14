@@ -65,6 +65,13 @@ $ sudo pip3 install h5py
 
 
 # step 5: Install Pytorch4.0.0
+ATTENTION: this step does not work on raspberry pi3 b+. it crashes on 94%. therefore precompiled whil file are downloaded from "https://wintics-opensource.s3.eu-west-3.amazonaws.com/torch-1.4.0a0%2B7963631-cp37-cp37m-linux_armv7l.whl " and installed using pip3 install *.whl"
+before testing it, you need maybe to install numpy using "pip3 install numpy" command in command line
+furthemore, you need to install libatlas using apt. for this purpose  use the fllowing command 
+$ sudo apt-get install libatlas-base-dev
+
+in order to test the installation open python3 and give the "import torch" command. if you get some 
+-------------------------------------------is not working -------------------------
 (followed from this link :https://medium.com/hardware-interfacing/how-to-install-pytorch-v4-0-on-raspberry-pi-3b-odroids-and-other-arm-based-devices-91d62f2933c7) 
 $ sudo apt install libopenblas-dev libblas-dev m4 cmake cython python3-dev python3-yaml python3-setuptools
 $ mkdir pytorch_install && cd pytorch_install
@@ -78,7 +85,7 @@ $ export NO_DISTRIBUTED=1
 $ export NO_MKLDNN=1 
 $ export NO_NNPACK=1
 $ export NO_QNNPACK=1
-
+--------------------------------------------------till here is not working----------------------------------
 # Step optional Install tensorflow 
 $ sudo pip3 uninstall tensorflow
 $ sudo pip3 install tensorflow-1.8.0-cp35-none-linux_armv7l.whl
@@ -88,11 +95,6 @@ $ sudo apt-get install libhdf5-dev
 $ sudo pip3 install h5py
 $ sudo pip3 install mtcnn
 
-
-
-now install it:
-$ python3 setup.py build
-$ sudo -E python3 setup.py install
 
 
 
