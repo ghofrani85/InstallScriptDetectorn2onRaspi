@@ -14,6 +14,19 @@ $ sudo reboot
 
 #Step2: install OpenCv 4.2.0
 1. first get sure that the version of python3 is >= 3.7
+
+2. change you swap size : 
+2.1. open your swap configuration file using :
+$ sudo nano /etc/dphys-swapfile
+2.2. witihng the dphys-swapfile change the "swapfile=100" to "swapfile=1024" and save and close it
+2.3. affect the changes using: 
+$ sudo /etc/init.d/dphys-swapfile stop
+$ sudo /etc/init.d/dphys-swapfile start
+
+
+
+
+
 2. perform following commands
 
 $ sudo apt-get purge wolfram-engine
@@ -43,15 +56,6 @@ $ cd ~/opencv/
 $ mkdir build
 $ cd build
 $ cmake -D CMAKE_BUILD_TYPE=RELEASE     -D CMAKE_INSTALL_PREFIX=/usr/local     -D INSTALL_PYTHON_EXAMPLES=ON     -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules     -D BUILD_EXAMPLES=ON ..
-
-# Step3 change swap size
-1. open your swap configuration file using :
-$ sudo nano /etc/dphys-swapfile
-2. witihng the dphys-swapfile change the "swapfile=100" to "swapfile=1024" and save and close it
-3. affect the changes using: 
-$ sudo /etc/init.d/dphys-swapfile stop
-$ sudo /etc/init.d/dphys-swapfile start
-4. install opencv now using follwoing commands: 
 $ make -j4
 $ sudo make install
 $ sudo ldconfig
@@ -62,7 +66,7 @@ $ rm -r -f opencv opencv_contrib opencv.4.2.0 opencv_contrib-4.2.0
 6. install following packages: 
 $ sudo apt install libatlas-base-dev
 $ sudo pip3 install h5py
-
+$ sudo pip3 install -U setuptools
 
 # step 5: Install Pytorch4.0.0
 ATTENTION: this step does not work on raspberry pi3 b+. it crashes on 94%. therefore precompiled whil file are downloaded from "https://wintics-opensource.s3.eu-west-3.amazonaws.com/torch-1.4.0a0%2B7963631-cp37-cp37m-linux_armv7l.whl " and installed using pip3 install *.whl"
@@ -105,3 +109,12 @@ $ python3
 >>> import torch
 >>> a = torch.rand(5,3)
 >>> print (a)
+
+
+
+
+pip3 install torch-utils
+pip3 install -U torch torchvision
+pip3 install git+https://github.com/facebookresearch/fvcore.git
+git clone https://github.com/facebookresearch/detectron2 detectron2_repo
+pip3 install -e detectron2_repo
